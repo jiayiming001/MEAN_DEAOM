@@ -1,0 +1,29 @@
+<div class='login-page'> 
+   <form ng-submit="submitForm()">
+       <div class="panfish">
+           <img src="https://gold-cdn.xitu.io/v3/static/img/normal.0447fe9.png" class="normal" ng-show="$ctrl.pande === 'normal'">
+           <img src="https://gold-cdn.xitu.io/v3/static/img/greeting.1415c1c.png" class="greeting" ng-show="$ctrl.pande  === 'greeting'">
+           <img src="https://gold-cdn.xitu.io/v3/static/img/blindfold.58ce423.png" class="blindfold" ng-show="$ctrl.pande === 'blindfold'">
+       </div>
+       <div class="panel">
+            <h1 class="title">登录</h1>
+            <div class="input-group2">
+                <div class="input-box">
+                    <input type="text" placeholder="请输入手机号或者邮箱" maxlength="64" class="input" 
+                    ng-focus="$ctrl.pande  = 'greeting'" ng-blur="$ctrl.pande = 'normal'">
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="请输入密码" maxlength="64" class="input" 
+                    ng-focus="$ctrl.pande = 'blindfold'" ng-blur="$ctrl.pande = 'normal'">
+                </div>
+            </div>
+            <button type="submit" class="btn">登录</button> 
+            <div class="prompt-box">
+                    "没有账号? "
+                    <a href='/register' class="clickable">注册</a>
+                    <a href="#" class="right clickable">忘记密码</a>
+            </div>   
+        </div>
+   </form> 
+    
+</div>

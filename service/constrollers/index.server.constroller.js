@@ -1,3 +1,5 @@
+const path = require("path");
+
 exports.render = function(req, res) {
 
     if(req.session['count'] == null) {
@@ -6,5 +8,5 @@ exports.render = function(req, res) {
         req.session['count']++;
     }
     console.log(req.session['count'])
-    res.send("Hello World!");
+    res.sendFile(path.join(__dirname + '/../views/index.html'));
 }
