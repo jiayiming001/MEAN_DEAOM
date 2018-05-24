@@ -3,6 +3,8 @@
 angular.module('myTest',[
     'ngRoute',
     'ngAnimate',
+    'core',
     'loginPage',
-    'registerPage'
+    'registerPage',
+    'userLogin'
 ]);

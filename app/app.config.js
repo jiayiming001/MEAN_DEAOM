@@ -15,5 +15,8 @@ angular.
             when('/register', {
                 template: '<register-page></register-page>'
             }).
+            when('/user', {
+                template: '<user-login></user-login>'
+            }).
             otherwise('/login');
     }]);

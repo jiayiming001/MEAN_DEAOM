@@ -10,21 +10,40 @@ module.exports = function(app) {
     });
 
     app.get('/login', function (req, res, next) {
-        if (req.session.isFirst) {
-            console.log('欢迎再次访问');
-            console.log(req.session.isFirst);
-        } else {
-            req.session.isFirst = { 'username': '123' }
-            console.log('欢迎第一次访问');
-        }
-        res.sendFile(path.join(__dirname + '/../views/index.html'));
+        res.sendFile(path.join(__dirname + '/../views/index.html'));  
     });
+    
     
     app.get('/register', function (req, res) {
         res.sendFile(path.join(__dirname + '/../views/index.html'));
-    })
+    });
      
     app.get('/', function (req, res) {
         res.redirect('/login');
-    })
+    });
+
+    app.get('/user', function (req, res) {
+       res.redirect('/login'); 
+    });
+
+    app.post('/login/submit', function(req, res) {
+        let params = req.body;
+        if(params.user === '123' && params.password === '123'){
+            req.session.isFirst = {'username': params.user};
+            res.json({'status': 'ok'});
+        } else {
+            res.json({'status': 'fail'});
+        }
+    });
+
+    app.post('/session', function(req, res) {
+        if(req.session.isFirst) {
+            console.log('欢迎再次访问');
+            res.json({'status': 'ok'});
+        } else {
+            console.log('第一次访问需要登录验证');
+            res.json({'status': 'fail'});
+        }
+    });
+
 };
