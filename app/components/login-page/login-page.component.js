@@ -5,12 +5,15 @@ angular.
     component('loginPage', {
         templateUrl: 'app/components/login-page/login-page.template.html',
         controller:  function LoginPageController($http, $scope, $location, Check) {
+            var self = this;
             this.$onInit = function () {
                 var res = Check.save(); //使用服务和服务端进行验证
                 res.$promise.then(function () {
                     console.log(res.status);
                     if(res.status === 'ok'){
-                        $location.path('/user');
+                        self.status = res.username;
+                    } else {
+                        self.status = '请登录';
                     }
                 });
             }
@@ -32,7 +35,7 @@ angular.
                         alert('失败');
                     }
                 }, (error) => {
-                    alert("失败");
+                    alert("请求失败");
                 })
             };
         }

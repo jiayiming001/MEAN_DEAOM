@@ -1,19 +1,19 @@
 <div class="register-page">
-    <form ng-submit="RegisterSubmit()">
+    <form ng-submit="$ctrl.RegisterSubmit()">
             <div class="panel">
                     <h1 class="title">注册</h1>
                     <div class="input-group2">
                         <div class="input-box">
-                            <input type="text" placeholder="请输入用户名" maxlength="64" class="input" >
+                            <input type="text" placeholder="请输入用户名" maxlength="64" class="input" ng-model="$ctrl.user.username">
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="请输入手机号" maxlength="13" class="input">
+                            <input type="text" placeholder="请输入手机号" maxlength="13" class="input" ng-model="$ctrl.user.phone">
                         </div>
                         <div class="input-box">
-                                <input type="password" placeholder="请输入密码(不少于6位)" maxlength="16" class="input">
+                                <input type="password" placeholder="请输入密码(不少于6位)" maxlength="16" class="input" ng-model="$ctrl.user.password">
                         </div>
                         <div class="input-box">
-                                <input type="password" placeholder="请再次输入密码" maxlength="16" class="input">
+                                <input type="password" placeholder="请再次输入密码" maxlength="16" class="input" ng-model="$ctrl.user.dpassword">
                         </div>
                     </div>
                     <button type="submit" class="btn">注册</button> 
