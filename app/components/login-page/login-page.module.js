@@ -1,4 +1,4 @@
 'use strict';
 
 angular.
-    module('loginPage', []);
+    module('loginPage', ['core.checklogin']);

@@ -3,7 +3,7 @@
 angular.
     module('core.checklogin').
     factory('Check', function($resource){
-        return $resource('/session', {}, {
+        return $resource('session', {}, {
             save:  {
                 method: 'post',
             }

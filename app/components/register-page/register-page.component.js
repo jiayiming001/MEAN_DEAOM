@@ -6,6 +6,7 @@ angular.
         templateUrl: 'app/components/register-page/register-page.template.html',
         controller: function($http, $location) {
             var self = this;
+            this.status = '';
             this.RegisterSubmit = function() {
                 $http({
                     method: 'post',
@@ -18,8 +19,10 @@ angular.
                 }).then((response) => {
                     let res = response.data;
                     if(res.status === 'ok') {
+                        self.status = 'ok';
                         $location.path('/user');
                     } else {
+                        self.status = 'fail';
                         alert("失败");
                     }
                 }, (error) => {

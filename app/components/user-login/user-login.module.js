@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('userLogin', []);
+angular.module('userLogin', ['core.checklogin']);
