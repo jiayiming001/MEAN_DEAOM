@@ -24,7 +24,11 @@ module.exports = function(app) {
     });
 
     app.get('/user', function (req, res) {
-       res.redirect('/login'); 
+        if(req.session.isFirst) {
+            res.sendFile(path.join(__dirname + '/../views/index.html'));
+        } else {
+            res.redirect('/login'); 
+        }
     });
 
     app.post('/login/submit', function(req, res) {
